@@ -1,0 +1,52 @@
+
+to install: 
+
+sudo apt install x11vnc -y
+sudo apt install gnome-session-flashback -y
+sduo apt install slick-greeter >> lighttdm
+
+sudo nano /lib/systemd/system/x11vnc.service
+and add the following ....
+
+###################################################################################################################
+[Unit]
+Description=x11vnc service
+After=display-manager.service network.target syslog.target
+#After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/x11vnc -forever -loop -noxdamage -repeat  -display :0 -auth guess -passwd password -shared
+ExecStop=/usr/bin/killall x11vnc
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
+###################################################################################################################
+sudo nano /etc/init/x11vnc.conf
+
+# description "Start x11vnc on system boot"
+
+description "x11vnc"
+
+start on runlevel [2345]cat /e
+stop on runlevel [^2345]
+
+console log
+
+respawn
+respawn limit 20 5
+
+exec /usr/bin/x11vnc -forever -loop -noxdamage -repeat -rfport 5900  -display :0 -auth guess -passwd password -shared
+
+
+
+
+##################
+sudo systemctl daemon-reload
+sudo systemctl enable x11vnc.service
+sudo systemctl start x11vnc.service
+sudo systemctl status x11vnc.service
+###############################################
+
