@@ -3,7 +3,7 @@ to install:
 
 sudo apt install x11vnc -y
 sudo apt install gnome-session-flashback -y
-sduo apt install slick-greeter >> lighttdm
+sudo apt install slick-greeter >> lighttdm
 
 sudo nano /lib/systemd/system/x11vnc.service
 and add the following ....
