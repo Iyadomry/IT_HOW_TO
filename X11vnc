@@ -61,3 +61,7 @@ To assign a new UID to user called foo, enter:
 To assign a new GID to group called foo, enter:
 # groupmod -g 3000 foo
 
+Change homedir
+
+usermod -d /home/peter peter
+
