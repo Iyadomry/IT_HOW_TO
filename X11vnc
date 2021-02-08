@@ -1,6 +1,7 @@
 
 to install: 
 
+sudo apt install -y nfs-common python python3 python-pip python3-pip autofs cifs-utils nfs-kernel-server vim default-jre git terminator
 sudo apt install x11vnc -y
 sudo apt install gnome-session-flashback -y
 sudo apt install slick-greeter >> lighttdm
