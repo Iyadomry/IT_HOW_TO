@@ -51,3 +51,13 @@ sudo systemctl start x11vnc.service
 sudo systemctl status x11vnc.service
 ###############################################
 
+
+User ID 
+
+Linux command to change UID and GID
+To assign a new UID to user called foo, enter:
+# usermod -u 2005 foo
+
+To assign a new GID to group called foo, enter:
+# groupmod -g 3000 foo
+
